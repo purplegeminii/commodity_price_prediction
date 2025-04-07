@@ -25,17 +25,17 @@ library(forecast)
 library(seastests)
 library(forecastHybrid)
 
-RTA <- read.csv('/Users/purplegeminii/Desktop/Undergraduate Thesis/commodity_historical.csv')
+DATA <- read.csv('/Users/purplegeminii/Desktop/Undergraduate Thesis/commodity_historical.csv')
 
-tail(RTA)
-summary(RTA)
+tail(DATA)
+summary(DATA)
 
-colnames(RTA)[colnames(RTA) == "Crude.Oil.Brent.Price"] <- "COBPrice"
-# colnames(RTA)[colnames(RTA) == "Cocoa.Price"] <- "CocoaPrice"
-# colnames(RTA)[colnames(RTA) == "Gold.Price"] <- "GoldPrice"
+colnames(DATA)[colnames(DATA) == "Crude.Oil.Brent.Price"] <- "COBPrice"
+# colnames(DATA)[colnames(DATA) == "Cocoa.Price"] <- "CocoaPrice"
+# colnames(DATA)[colnames(DATA) == "Gold.Price"] <- "GoldPrice"
 
 #make the data a time series data
-Tseries<-ts(RTA$COBPrice, frequency=12, start=c(1980,1))
+Tseries<-ts(DATA$COBPrice, frequency=12, start=c(1980,1))
 class(Tseries)
 
 ## Plotting the time series of crudeoil price data
@@ -47,12 +47,12 @@ autoplot(Tseries, col="green", xlab = "Year", ylab = "Crude Oil Bent Price")
 kw(Tseries, freq = 12, diff = T, residuals = F, autoarima = T)
 
 # Splitting the data into two parts
-COBTrain <- head(RTA, 528)
-COBTest <- tail(RTA, 12)
+COBTrain <- head(DATA, 618)
+COBTest <- tail(DATA, 162)
 
 ### Convert Train cases to time series
 TseriesTrain<-ts(COBTrain$COBPrice, frequency=12, start=c(1980,1))
-
+TseriesTest<-ts(COBTest$COBPrice, frequency = 12)
 
 ## Decomposing the time series
 DecompTseries<-decompose(TseriesTrain)
@@ -95,20 +95,21 @@ PACFSEA<- pacf(COBPrice_seasdiff)  # PACF plot
 
 
 ## Arima Function to select the best model
+# Best model: ARIMA(2,0,2)(0,0,1)[12] with non-zero mean
 BestArima<-auto.arima(COBPrice_seasdiff, stepwise = FALSE, seasonal = TRUE, trace = TRUE)
 
 ## Checking various ARIMA models
 
 # ARIMA 1
-fit1<-Arima(TseriesTrain, order = c(2,0,3))
+fit1<-Arima(TseriesTrain, order = c(2,0,2))
 summary(fit1)
 ?arima
 
 # if there is a seasonal component, then the code used is
 SARIMA1<-Arima(
     TseriesTrain, 
-    order = c(2,0,1), 
-    seasonal = list(order = c(0,0,2), 
+    order = c(2,0,2), 
+    seasonal = list(order = c(0,0,1), 
     period = 12), 
     include.mean = TRUE, 
     include.drift = FALSE
@@ -122,3 +123,4 @@ summary(SARIMA1) # accuracy test
 # forecast
 COBForecast <- forecast(SARIMA1, h=length(COBTest$COBPrice))  # Forecast for the same period as the test set
 accuracy(COBForecast, COBTest$COBPrice)
+autoplot(COBForecast)

@@ -38,20 +38,24 @@ colnames(RTA)[colnames(RTA) == "Cocoa.Price"] <- "CocoaPrice"
 Tseries<-ts(RTA$CocoaPrice, frequency=12, start=c(1980,1))
 class(Tseries)
 
-## Plotting the time series of crudeoil price data
+## Plotting the time series of cocoa price data
 autoplot(Tseries, col="green", xlab = "Year", ylab = "Cocoa Price")
 
 
 ###Test for seasonality
 # If p-value < 0.05, we reject the null hypothesis, meaning there is significant seasonality.
+# p-value = 0.343484
 kw(Tseries, freq = 12, diff = T, residuals = F, autoarima = T)
 
 # Splitting the data into two parts
-CocoaTrain <- head(RTA, 528)
-CocoaTest <- tail(RTA, 12)
+CocoaTrain <- head(RTA, 618)
+tail(CocoaTrain)
+CocoaTest <- tail(RTA, 162)
+tail(CocoaTest)
 
 ### Convert Train cases to time series
 TseriesTrain<-ts(CocoaTrain$CocoaPrice, frequency=12, start=c(1980,1))
+TseriesTest<-ts(CocoaTest$CocoaPrice, frequency = 12)
 
 
 ## Decomposing the time series
@@ -78,7 +82,7 @@ ndiffs(TseriesTrain)  # number for seasonal difference needed
 
 ## Difference to make it stationary 
 CocoaPrice_seasdiff <- diff(TseriesTrain, differences=1)  # seasonal differencing
-plot(CocoaPrice_seasdiff, type="l", main="Seasonally Differenced",col="red",xlab="Year")  # still not stationary!
+plot(CocoaPrice_seasdiff, type="l", main="Seasonally Differenced",col="red",xlab="Year")  # stationary!
 autoplot(CocoaPrice_seasdiff, col="red")
 # CocoaPrice_seasdiff
 
@@ -100,15 +104,15 @@ BestArima<-auto.arima(CocoaPrice_seasdiff, stepwise = FALSE, seasonal = TRUE, tr
 ## Checking various ARIMA models
 
 # ARIMA 1
-fit1<-Arima(TseriesTrain, order = c(0,0,4))
+fit1<-Arima(TseriesTrain, order = c(0,0,4))  # ARIMA(0,0,4) with zero
 summary(fit1)
 #?arima
 
 # if there is a seasonal component, then the code used is
 SARIMA1<-Arima(
     TseriesTrain, 
-    order = c(2,0,1), 
-    seasonal = list(order = c(0,0,2), 
+    order = c(0,0,4), 
+    seasonal = list(order = c(0,0,0), 
     period = 12), 
     include.mean = TRUE, 
     include.drift = FALSE
@@ -120,5 +124,6 @@ coeftest(SARIMA1)
 summary(SARIMA1) # accuracy test
 
 # forecast
-CocoaForecast <- forecast(SARIMA1, h=length(CocoaTest$CocoaPrice))  # Forecast for the same period as the test set
-accuracy(CocoaForecast, CocoaTest$COBPrice)
+CocoaForecast <- forecast(SARIMA1, h=length(TseriesTest))  # Forecast for the same period as the test set
+accuracy(CocoaForecast, CocoaTest$CocoaPrice)
+autoplot(CocoaForecast)

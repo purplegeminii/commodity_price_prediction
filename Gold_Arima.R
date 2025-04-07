@@ -46,7 +46,7 @@ autoplot(Tseries, col="green", xlab = "Year", ylab = "Crude Oil Bent Price")
 # If p-value < 0.05, we reject the null hypothesis, meaning there is significant seasonality.
 kw(Tseries, freq = 12, diff = T, residuals = F, autoarima = T)
 
-# Splitting the data into two parts
+# Splitting the data into two parts 1980-2023 and 2024
 COBTrain <- head(RTA, 768)
 COBTest <- tail(RTA, 12)
 

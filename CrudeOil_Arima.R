@@ -103,7 +103,13 @@ BestArima<-auto.arima(COBPrice_seasdiff, stepwise = FALSE, seasonal = TRUE, trac
 # ARIMA 1
 fit1<-Arima(TseriesTrain, order = c(2,0,2))
 summary(fit1)
-?arima
+
+# forecast
+COBForecast <- forecast(fit1, h=length(COBTest$COBPrice))  # Forecast for the same period as the test set
+accuracy(COBForecast, COBTest$COBPrice)
+autoplot(COBForecast)
+
+#?arima
 
 # if there is a seasonal component, then the code used is
 SARIMA1<-Arima(

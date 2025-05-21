@@ -1,0 +1,554 @@
+Beginning AutoGluon training...
+AutoGluon will save models to '/Users/purplegeminii/Desktop/Undergraduate Thesis/commodity_price_prediction/autogluon_models/Cocoa_Price'
+=================== System Info ===================
+AutoGluon Version:  1.2
+Python Version:     3.12.9
+Operating System:   Darwin
+Platform Machine:   arm64
+Platform Version:   Darwin Kernel Version 24.1.0: Thu Oct 10 21:06:57 PDT 2024; root:xnu-11215.41.3~3/RELEASE_ARM64_T6041
+CPU Count:          14
+GPU Count:          0
+Memory Avail:       5.21 GB / 24.00 GB (21.7%)
+Disk Space Avail:   117.94 GB / 460.43 GB (25.6%)
+===================================================
+Setting presets to: medium_quality
+
+Fitting with arguments:
+{'enable_ensemble': True,
+ 'eval_metric': RMSE,
+ 'hyperparameters': {'DLinearModel': {},
+                     'DeepARModel': {'num_layers': 4},
+                     'PatchTSTModel': {},
+                     'SimpleFeedForwardModel': {'hidden_dimensions': [256,
+                                                                      128]},
+                     'TemporalFusionTransformerModel': {},
+                     'TiDEModel': {},
+                     'WaveNetModel': {}},
+ 'known_covariates_names': [],
+ 'num_val_windows': 3,
+ 'prediction_length': 12,
+ 'quantile_levels': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'Cocoa Price',
+ 'verbosity': 2}
+
+Inferred time series frequency: 'MS'
+Provided train_data has 396 rows, 1 time series. Median time series length is 396 (min=396, max=396). 
+
+Provided data contains following columns:
+	target: 'Cocoa Price'
+	past_covariates:
+		categorical:        []
+		continuous (float): ['Revenue, exc...ts (% of GDP)', 'GDP (constant 2015 US$)', 'Employment t...15+, total %)', 'Crude Oil Brent Price_3mo_ma', 'Crude Oil Br...Price_12mo_ma', 'Cocoa Price_3mo_ma', ...]
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+AutoGluon will gauge predictive performance using evaluation metric: 'RMSE'
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+===================================================
+
+Starting training. Start time is 2025-04-26 16:28:42
+Models that will be trained: ['TemporalFusionTransformer', 'DeepAR', 'PatchTST', 'TiDE', 'WaveNet', 'SimpleFeedForward', 'DLinear']
+Training timeseries model TemporalFusionTransformer. 
+	-0.4218       = Validation score (-RMSE)
+	139.41  s     = Training runtime
+	0.01    s     = Validation (prediction) runtime
+Training timeseries model DeepAR. 
+	-0.3452       = Validation score (-RMSE)
+	122.18  s     = Training runtime
+	0.02    s     = Validation (prediction) runtime
+Training timeseries model PatchTST. 
+	-0.3948       = Validation score (-RMSE)
+	37.02   s     = Training runtime
+	0.00    s     = Validation (prediction) runtime
+Training timeseries model TiDE. 
+	-0.3544       = Validation score (-RMSE)
+	54.62   s     = Training runtime
+	0.00    s     = Validation (prediction) runtime
+Training timeseries model WaveNet. 
+	-0.3813       = Validation score (-RMSE)
+	792.51  s     = Training runtime
+	0.33    s     = Validation (prediction) runtime
+Training timeseries model SimpleFeedForward. 
+	-0.3317       = Validation score (-RMSE)
+	13.48   s     = Training runtime
+	0.00    s     = Validation (prediction) runtime
+Training timeseries model DLinear. 
+	-0.4536       = Validation score (-RMSE)
+	9.74    s     = Training runtime
+	0.00    s     = Validation (prediction) runtime
+Fitting simple weighted ensemble.
+	Ensemble weights: {'DeepAR': 0.21, 'SimpleFeedForward': 0.59, 'TiDE': 0.2}
+	-0.3265       = Validation score (-RMSE)
+	0.43    s     = Training runtime
+	0.03    s     = Validation (prediction) runtime
+Training complete. Models trained: ['TemporalFusionTransformer', 'DeepAR', 'PatchTST', 'TiDE', 'WaveNet', 'SimpleFeedForward', 'DLinear', 'WeightedEnsemble']
+Total runtime: 1169.80 s
+Best model: WeightedEnsemble
+Best model score: -0.3265
+Model not specified in predict, will default to the model with the best validation score: WeightedEnsemble
+Beginning AutoGluon training...
+AutoGluon will save models to '/Users/purplegeminii/Desktop/Undergraduate Thesis/commodity_price_prediction/autogluon_models/Gold_Price'
+=================== System Info ===================
+AutoGluon Version:  1.2
+Python Version:     3.12.9
+Operating System:   Darwin
+Platform Machine:   arm64
+Platform Version:   Darwin Kernel Version 24.1.0: Thu Oct 10 21:06:57 PDT 2024; root:xnu-11215.41.3~3/RELEASE_ARM64_T6041
+CPU Count:          14
+GPU Count:          0
+Memory Avail:       5.26 GB / 24.00 GB (21.9%)
+Disk Space Avail:   118.81 GB / 460.43 GB (25.8%)
+===================================================
+Setting presets to: medium_quality
+
+Fitting with arguments:
+{'enable_ensemble': True,
+ 'eval_metric': RMSE,
+ 'hyperparameters': {'DLinearModel': {},
+                     'DeepARModel': {'num_layers': 4},
+                     'PatchTSTModel': {},
+                     'SimpleFeedForwardModel': {'hidden_dimensions': [256,
+                                                                      128]},
+                     'TemporalFusionTransformerModel': {},
+                     'TiDEModel': {},
+                     'WaveNetModel': {}},
+ 'known_covariates_names': [],
+ 'num_val_windows': 3,
+ 'prediction_length': 12,
+ 'quantile_levels': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'Gold Price',
+ 'verbosity': 2}
+
+Inferred time series frequency: 'MS'
+Provided train_data has 396 rows, 1 time series. Median time series length is 396 (min=396, max=396). 
+
+Provided data contains following columns:
+	target: 'Gold Price'
+	past_covariates:
+		categorical:        []
+		continuous (float): ['Revenue, exc...ts (% of GDP)', 'GDP (constant 2015 US$)', 'Employment t...15+, total %)', 'Crude Oil Brent Price_3mo_ma', 'Crude Oil Br...Price_12mo_ma', 'Cocoa Price_3mo_ma', ...]
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+AutoGluon will gauge predictive performance using evaluation metric: 'RMSE'
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+===================================================
+
+Starting training. Start time is 2025-04-26 16:48:12
+Models that will be trained: ['TemporalFusionTransformer', 'DeepAR', 'PatchTST', 'TiDE', 'WaveNet', 'SimpleFeedForward', 'DLinear']
+Training timeseries model TemporalFusionTransformer. 
+	-126.9953     = Validation score (-RMSE)
+	163.59  s     = Training runtime
+	0.01    s     = Validation (prediction) runtime
+Training timeseries model DeepAR. 
+	-137.2641     = Validation score (-RMSE)
+	163.78  s     = Training runtime
+	0.03    s     = Validation (prediction) runtime
+Training timeseries model PatchTST. 
+	-85.6616      = Validation score (-RMSE)
+	55.69   s     = Training runtime
+	0.00    s     = Validation (prediction) runtime
+Training timeseries model TiDE. 
+	-153.1093     = Validation score (-RMSE)
+	39.84   s     = Training runtime
+	0.00    s     = Validation (prediction) runtime
+Training timeseries model WaveNet. 
+	-106.3638     = Validation score (-RMSE)
+	217.25  s     = Training runtime
+	0.32    s     = Validation (prediction) runtime
+Training timeseries model SimpleFeedForward. 
+	-128.8077     = Validation score (-RMSE)
+	18.22   s     = Training runtime
+	0.00    s     = Validation (prediction) runtime
+Training timeseries model DLinear. 
+	-168.6514     = Validation score (-RMSE)
+	8.23    s     = Training runtime
+	0.00    s     = Validation (prediction) runtime
+Fitting simple weighted ensemble.
+	Ensemble weights: {'PatchTST': 0.65, 'TemporalFusionTransformer': 0.16, 'WaveNet': 0.18}
+	-79.9424      = Validation score (-RMSE)
+	0.45    s     = Training runtime
+	0.33    s     = Validation (prediction) runtime
+Training complete. Models trained: ['TemporalFusionTransformer', 'DeepAR', 'PatchTST', 'TiDE', 'WaveNet', 'SimpleFeedForward', 'DLinear', 'WeightedEnsemble']
+Total runtime: 667.48 s
+Best model: WeightedEnsemble
+Best model score: -79.9424
+Model not specified in predict, will default to the model with the best validation score: WeightedEnsemble
+Beginning AutoGluon training...
+AutoGluon will save models to '/Users/purplegeminii/Desktop/Undergraduate Thesis/commodity_price_prediction/autogluon_models/Cocoa_Price'
+=================== System Info ===================
+AutoGluon Version:  1.2
+Python Version:     3.12.9
+Operating System:   Darwin
+Platform Machine:   arm64
+Platform Version:   Darwin Kernel Version 24.1.0: Thu Oct 10 21:06:57 PDT 2024; root:xnu-11215.41.3~3/RELEASE_ARM64_T6041
+CPU Count:          14
+GPU Count:          0
+Memory Avail:       5.26 GB / 24.00 GB (21.9%)
+Disk Space Avail:   225.06 GB / 460.43 GB (48.9%)
+===================================================
+Setting presets to: medium_quality
+
+Fitting with arguments:
+{'enable_ensemble': True,
+ 'eval_metric': RMSE,
+ 'hyperparameters': {'DLinearModel': {},
+                     'DeepARModel': {'num_layers': 4},
+                     'PatchTSTModel': {},
+                     'SimpleFeedForwardModel': {'hidden_dimensions': [256,
+                                                                      128]},
+                     'TemporalFusionTransformerModel': {},
+                     'TiDEModel': {},
+                     'WaveNetModel': {}},
+ 'known_covariates_names': [],
+ 'num_val_windows': 3,
+ 'prediction_length': 12,
+ 'quantile_levels': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'Cocoa Price',
+ 'verbosity': 2}
+
+Inferred time series frequency: 'MS'
+Provided train_data has 396 rows, 1 time series. Median time series length is 396 (min=396, max=396). 
+
+Provided data contains following columns:
+	target: 'Cocoa Price'
+	past_covariates:
+		categorical:        []
+		continuous (float): ['Revenue, exc...ts (% of GDP)', 'GDP (constant 2015 US$)', 'Employment t...15+, total %)', 'Crude Oil Brent Price_3mo_ma', 'Crude Oil Br...Price_12mo_ma', 'Cocoa Price_3mo_ma', ...]
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+AutoGluon will gauge predictive performance using evaluation metric: 'RMSE'
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+===================================================
+
+Starting training. Start time is 2025-04-27 23:15:47
+Models that will be trained: ['TemporalFusionTransformer', 'DeepAR', 'PatchTST', 'TiDE', 'WaveNet', 'SimpleFeedForward', 'DLinear']
+Training timeseries model TemporalFusionTransformer. 
+	-0.4218       = Validation score (-RMSE)
+	141.08  s     = Training runtime
+	0.01    s     = Validation (prediction) runtime
+Training timeseries model DeepAR. 
+	-0.3452       = Validation score (-RMSE)
+	118.95  s     = Training runtime
+	0.02    s     = Validation (prediction) runtime
+Training timeseries model PatchTST. 
+	-0.3948       = Validation score (-RMSE)
+	39.71   s     = Training runtime
+	0.00    s     = Validation (prediction) runtime
+Training timeseries model TiDE. 
+	-0.3544       = Validation score (-RMSE)
+	55.72   s     = Training runtime
+	0.00    s     = Validation (prediction) runtime
+Training timeseries model WaveNet. 
+	-0.3813       = Validation score (-RMSE)
+	3748.08 s     = Training runtime
+	0.33    s     = Validation (prediction) runtime
+Training timeseries model SimpleFeedForward. 
+	-0.3317       = Validation score (-RMSE)
+	13.44   s     = Training runtime
+	0.00    s     = Validation (prediction) runtime
+Training timeseries model DLinear. 
+	-0.4536       = Validation score (-RMSE)
+	9.44    s     = Training runtime
+	0.00    s     = Validation (prediction) runtime
+Fitting simple weighted ensemble.
+	Ensemble weights: {'DeepAR': 0.21, 'SimpleFeedForward': 0.59, 'TiDE': 0.2}
+	-0.3265       = Validation score (-RMSE)
+	0.43    s     = Training runtime
+	0.03    s     = Validation (prediction) runtime
+Training complete. Models trained: ['TemporalFusionTransformer', 'DeepAR', 'PatchTST', 'TiDE', 'WaveNet', 'SimpleFeedForward', 'DLinear', 'WeightedEnsemble']
+Total runtime: 4127.27 s
+Best model: WeightedEnsemble
+Best model score: -0.3265
+Model not specified in predict, will default to the model with the best validation score: WeightedEnsemble
+Warning: path already exists! This predictor may overwrite an existing predictor! path="autogluon_models/Gold_Price"
+Beginning AutoGluon training...
+AutoGluon will save models to '/Users/purplegeminii/Desktop/Undergraduate Thesis/commodity_price_prediction/autogluon_models/Gold_Price'
+=================== System Info ===================
+AutoGluon Version:  1.2
+Python Version:     3.12.9
+Operating System:   Darwin
+Platform Machine:   arm64
+Platform Version:   Darwin Kernel Version 24.1.0: Thu Oct 10 21:06:57 PDT 2024; root:xnu-11215.41.3~3/RELEASE_ARM64_T6041
+CPU Count:          14
+GPU Count:          0
+Memory Avail:       5.24 GB / 24.00 GB (21.8%)
+Disk Space Avail:   225.06 GB / 460.43 GB (48.9%)
+===================================================
+Setting presets to: medium_quality
+
+Fitting with arguments:
+{'enable_ensemble': True,
+ 'eval_metric': RMSE,
+ 'hyperparameters': {'DLinearModel': {},
+                     'DeepARModel': {'num_layers': 4},
+                     'PatchTSTModel': {},
+                     'SimpleFeedForwardModel': {'hidden_dimensions': [256,
+                                                                      128]},
+                     'TemporalFusionTransformerModel': {},
+                     'TiDEModel': {},
+                     'WaveNetModel': {}},
+ 'known_covariates_names': [],
+ 'num_val_windows': 3,
+ 'prediction_length': 12,
+ 'quantile_levels': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'Gold Price',
+ 'verbosity': 2}
+
+Inferred time series frequency: 'MS'
+Provided train_data has 396 rows, 1 time series. Median time series length is 396 (min=396, max=396). 
+
+Provided data contains following columns:
+	target: 'Gold Price'
+	past_covariates:
+		categorical:        []
+		continuous (float): ['Revenue, exc...ts (% of GDP)', 'GDP (constant 2015 US$)', 'Employment t...15+, total %)', 'Crude Oil Brent Price_3mo_ma', 'Crude Oil Br...Price_12mo_ma', 'Cocoa Price_3mo_ma', ...]
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+AutoGluon will gauge predictive performance using evaluation metric: 'RMSE'
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+===================================================
+
+Starting training. Start time is 2025-04-28 00:24:34
+Models that will be trained: ['TemporalFusionTransformer', 'DeepAR', 'PatchTST', 'TiDE', 'WaveNet', 'SimpleFeedForward', 'DLinear']
+Training timeseries model TemporalFusionTransformer. 
+	-126.9953     = Validation score (-RMSE)
+	154.85  s     = Training runtime
+	0.01    s     = Validation (prediction) runtime
+Training timeseries model DeepAR. 
+	-137.2641     = Validation score (-RMSE)
+	172.25  s     = Training runtime
+	0.02    s     = Validation (prediction) runtime
+Training timeseries model PatchTST. 
+	-85.6616      = Validation score (-RMSE)
+	59.99   s     = Training runtime
+	0.00    s     = Validation (prediction) runtime
+Training timeseries model TiDE. 
+	-153.1093     = Validation score (-RMSE)
+	41.14   s     = Training runtime
+	0.00    s     = Validation (prediction) runtime
+Training timeseries model WaveNet. 
+	-106.3638     = Validation score (-RMSE)
+	1013.59 s     = Training runtime
+	0.34    s     = Validation (prediction) runtime
+Training timeseries model SimpleFeedForward. 
+	-128.8077     = Validation score (-RMSE)
+	18.05   s     = Training runtime
+	0.00    s     = Validation (prediction) runtime
+Training timeseries model DLinear. 
+	-168.6514     = Validation score (-RMSE)
+	8.13    s     = Training runtime
+	0.00    s     = Validation (prediction) runtime
+Fitting simple weighted ensemble.
+	Ensemble weights: {'PatchTST': 0.65, 'TemporalFusionTransformer': 0.16, 'WaveNet': 0.18}
+	-79.9424      = Validation score (-RMSE)
+	0.43    s     = Training runtime
+	0.35    s     = Validation (prediction) runtime
+Training complete. Models trained: ['TemporalFusionTransformer', 'DeepAR', 'PatchTST', 'TiDE', 'WaveNet', 'SimpleFeedForward', 'DLinear', 'WeightedEnsemble']
+Total runtime: 1468.85 s
+Best model: WeightedEnsemble
+Best model score: -79.9424
+Model not specified in predict, will default to the model with the best validation score: WeightedEnsemble
+Beginning AutoGluon training...
+AutoGluon will save models to '/Users/purplegeminii/Desktop/Undergraduate Thesis/commodity_price_prediction/autogluon_models/Cocoa_Price'
+=================== System Info ===================
+AutoGluon Version:  1.2
+Python Version:     3.12.9
+Operating System:   Darwin
+Platform Machine:   arm64
+Platform Version:   Darwin Kernel Version 24.1.0: Thu Oct 10 21:06:57 PDT 2024; root:xnu-11215.41.3~3/RELEASE_ARM64_T6041
+CPU Count:          14
+GPU Count:          0
+Memory Avail:       6.33 GB / 24.00 GB (26.4%)
+Disk Space Avail:   222.52 GB / 460.43 GB (48.3%)
+===================================================
+Setting presets to: medium_quality
+
+Fitting with arguments:
+{'enable_ensemble': True,
+ 'eval_metric': RMSE,
+ 'hyperparameters': {'DLinearModel': {},
+                     'DeepARModel': {'num_layers': 4},
+                     'PatchTSTModel': {},
+                     'SimpleFeedForwardModel': {'hidden_dimensions': [256,
+                                                                      128]},
+                     'TemporalFusionTransformerModel': {},
+                     'TiDEModel': {},
+                     'WaveNetModel': {}},
+ 'known_covariates_names': [],
+ 'num_val_windows': 3,
+ 'prediction_length': 12,
+ 'quantile_levels': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'Cocoa Price',
+ 'verbosity': 2}
+
+Inferred time series frequency: 'MS'
+Provided train_data has 396 rows, 1 time series. Median time series length is 396 (min=396, max=396). 
+
+Provided data contains following columns:
+	target: 'Cocoa Price'
+	past_covariates:
+		categorical:        []
+		continuous (float): ['Revenue, exc...ts (% of GDP)', 'GDP (constant 2015 US$)', 'Employment t...15+, total %)', 'Crude Oil Brent Price_3mo_ma', 'Crude Oil Br...Price_12mo_ma', 'Cocoa Price_3mo_ma', ...]
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+AutoGluon will gauge predictive performance using evaluation metric: 'RMSE'
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+===================================================
+
+Starting training. Start time is 2025-04-28 14:45:35
+Models that will be trained: ['TemporalFusionTransformer', 'DeepAR', 'PatchTST', 'TiDE', 'WaveNet', 'SimpleFeedForward', 'DLinear']
+Training timeseries model TemporalFusionTransformer. 
+	-0.4218       = Validation score (-RMSE)
+	143.23  s     = Training runtime
+	0.01    s     = Validation (prediction) runtime
+Training timeseries model DeepAR. 
+	-0.3452       = Validation score (-RMSE)
+	117.92  s     = Training runtime
+	0.02    s     = Validation (prediction) runtime
+Training timeseries model PatchTST. 
+	-0.3948       = Validation score (-RMSE)
+	40.20   s     = Training runtime
+	0.00    s     = Validation (prediction) runtime
+Training timeseries model TiDE. 
+	-0.3544       = Validation score (-RMSE)
+	54.39   s     = Training runtime
+	0.00    s     = Validation (prediction) runtime
+Training timeseries model WaveNet. 
+	-0.3813       = Validation score (-RMSE)
+	243.35  s     = Training runtime
+	0.35    s     = Validation (prediction) runtime
+Training timeseries model SimpleFeedForward. 
+	-0.3317       = Validation score (-RMSE)
+	12.78   s     = Training runtime
+	0.00    s     = Validation (prediction) runtime
+Training timeseries model DLinear. 
+	-0.4536       = Validation score (-RMSE)
+	10.18   s     = Training runtime
+	0.00    s     = Validation (prediction) runtime
+Fitting simple weighted ensemble.
+	Ensemble weights: {'DeepAR': 0.21, 'SimpleFeedForward': 0.59, 'TiDE': 0.2}
+	-0.3265       = Validation score (-RMSE)
+	0.45    s     = Training runtime
+	0.03    s     = Validation (prediction) runtime
+Training complete. Models trained: ['TemporalFusionTransformer', 'DeepAR', 'PatchTST', 'TiDE', 'WaveNet', 'SimpleFeedForward', 'DLinear', 'WeightedEnsemble']
+Total runtime: 622.95 s
+Best model: WeightedEnsemble
+Best model score: -0.3265
+Model not specified in predict, will default to the model with the best validation score: WeightedEnsemble
+Warning: path already exists! This predictor may overwrite an existing predictor! path="autogluon_models/Gold_Price"
+Beginning AutoGluon training...
+AutoGluon will save models to '/Users/purplegeminii/Desktop/Undergraduate Thesis/commodity_price_prediction/autogluon_models/Gold_Price'
+=================== System Info ===================
+AutoGluon Version:  1.2
+Python Version:     3.12.9
+Operating System:   Darwin
+Platform Machine:   arm64
+Platform Version:   Darwin Kernel Version 24.1.0: Thu Oct 10 21:06:57 PDT 2024; root:xnu-11215.41.3~3/RELEASE_ARM64_T6041
+CPU Count:          14
+GPU Count:          0
+Memory Avail:       6.43 GB / 24.00 GB (26.8%)
+Disk Space Avail:   222.51 GB / 460.43 GB (48.3%)
+===================================================
+Setting presets to: medium_quality
+
+Fitting with arguments:
+{'enable_ensemble': True,
+ 'eval_metric': RMSE,
+ 'hyperparameters': {'DLinearModel': {},
+                     'DeepARModel': {'num_layers': 4},
+                     'PatchTSTModel': {},
+                     'SimpleFeedForwardModel': {'hidden_dimensions': [256,
+                                                                      128]},
+                     'TemporalFusionTransformerModel': {},
+                     'TiDEModel': {},
+                     'WaveNetModel': {}},
+ 'known_covariates_names': [],
+ 'num_val_windows': 3,
+ 'prediction_length': 12,
+ 'quantile_levels': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'Gold Price',
+ 'verbosity': 2}
+
+Inferred time series frequency: 'MS'
+Provided train_data has 396 rows, 1 time series. Median time series length is 396 (min=396, max=396). 
+
+Provided data contains following columns:
+	target: 'Gold Price'
+	past_covariates:
+		categorical:        []
+		continuous (float): ['Revenue, exc...ts (% of GDP)', 'GDP (constant 2015 US$)', 'Employment t...15+, total %)', 'Crude Oil Brent Price_3mo_ma', 'Crude Oil Br...Price_12mo_ma', 'Cocoa Price_3mo_ma', ...]
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+AutoGluon will gauge predictive performance using evaluation metric: 'RMSE'
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+===================================================
+
+Starting training. Start time is 2025-04-28 14:55:58
+Models that will be trained: ['TemporalFusionTransformer', 'DeepAR', 'PatchTST', 'TiDE', 'WaveNet', 'SimpleFeedForward', 'DLinear']
+Training timeseries model TemporalFusionTransformer. 
+	-126.9953     = Validation score (-RMSE)
+	148.08  s     = Training runtime
+	0.01    s     = Validation (prediction) runtime
+Training timeseries model DeepAR. 
+	-137.2641     = Validation score (-RMSE)
+	172.17  s     = Training runtime
+	0.02    s     = Validation (prediction) runtime
+Training timeseries model PatchTST. 
+	-85.6616      = Validation score (-RMSE)
+	64.44   s     = Training runtime
+	0.00    s     = Validation (prediction) runtime
+Training timeseries model TiDE. 
+	-153.1093     = Validation score (-RMSE)
+	41.59   s     = Training runtime
+	0.00    s     = Validation (prediction) runtime
+Training timeseries model WaveNet. 
+	-106.3638     = Validation score (-RMSE)
+	232.14  s     = Training runtime
+	0.36    s     = Validation (prediction) runtime
+Training timeseries model SimpleFeedForward. 
+	-128.8077     = Validation score (-RMSE)
+	18.17   s     = Training runtime
+	0.00    s     = Validation (prediction) runtime
+Training timeseries model DLinear. 
+	-168.6514     = Validation score (-RMSE)
+	8.99    s     = Training runtime
+	0.00    s     = Validation (prediction) runtime
+Fitting simple weighted ensemble.
+	Ensemble weights: {'PatchTST': 0.65, 'TemporalFusionTransformer': 0.16, 'WaveNet': 0.18}
+	-79.9424      = Validation score (-RMSE)
+	0.45    s     = Training runtime
+	0.37    s     = Validation (prediction) runtime
+Training complete. Models trained: ['TemporalFusionTransformer', 'DeepAR', 'PatchTST', 'TiDE', 'WaveNet', 'SimpleFeedForward', 'DLinear', 'WeightedEnsemble']
+Total runtime: 686.48 s
+Best model: WeightedEnsemble
+Best model score: -79.9424
+Model not specified in predict, will default to the model with the best validation score: WeightedEnsemble

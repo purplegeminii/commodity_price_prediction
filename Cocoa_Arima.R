@@ -104,8 +104,13 @@ BestArima<-auto.arima(CocoaPrice_seasdiff, stepwise = FALSE, seasonal = TRUE, tr
 ## Checking various ARIMA models
 
 # ARIMA 1
-fit1<-Arima(TseriesTrain, order = c(0,0,4))  # ARIMA(0,0,4) with zero
+fit1<-Arima(TseriesTrain, order = c(0,0,4))  # ARIMA(0,0,4) with non zero
 summary(fit1)
+
+CocoaForecast <- forecast(fit1, h=length(TseriesTest))  # Forecast for the same period as the test set
+accuracy(CocoaForecast, CocoaTest$CocoaPrice)
+autoplot(CocoaForecast)
+
 #?arima
 
 # if there is a seasonal component, then the code used is

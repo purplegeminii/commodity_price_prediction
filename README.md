@@ -15,7 +15,7 @@ This project explores machine learning and deep learning approaches for forecast
   - `Cocoa_Arima.R`, `CrudeOil_Arima.R`, `Gold_Arima.R`: ARIMA time series models for each commodity
 
 - **Data**:  
-  - `main_data.csv`, `commodity_historical.csv`, `merged_macro_commodity.csv`, and others: Raw and processed datasets  
+  - `main_data.csv`, `commodity_historical.csv`, `merged_macro_commodity.csv`: processed datasets  
   - `monthly_revenue_employment_GDP_data_1991_2024.csv`: Macroeconomic indicators
 
 - **Models & Outputs**:  

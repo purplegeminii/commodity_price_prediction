@@ -44,3 +44,5 @@ Install Python dependencies:
 ```sh
 pip install -r requirements.txt
 ```
+
+link to repo : <https://github.com/purplegeminii/commodity_price_prediction.git>
